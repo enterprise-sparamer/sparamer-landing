@@ -171,7 +171,7 @@ body::before {
      the blobs' alphas at the edges so they coalesce like mercury. The
      button surface clips them via overflow-hidden + rounded-full. */
   .liquid-layer {
-    opacity: 0.34;
+    opacity: 0.52;
     transition: opacity 320ms var(--stamp-ease),
                 transform 320ms var(--stamp-ease);
   }
@@ -185,11 +185,11 @@ body::before {
     transform: scale(1.08);
     transition-duration: 140ms;
   }
-  /* Secondary variant has a cream surface, so the liquid needs to be more
-     restrained at rest to avoid muddy clumps in the empty pill. */
-  .btn-v2.bg-cream .liquid-layer { opacity: 0.22; }
+  /* Secondary variant has a cream surface, so the bubbles need to be more
+     restrained at rest to avoid loud spots in the empty pill. */
+  .btn-v2.bg-cream .liquid-layer { opacity: 0.36; }
   .btn-v2.bg-cream:hover .liquid-layer,
-  .btn-v2.bg-cream:focus-visible .liquid-layer { opacity: 0.8; }
+  .btn-v2.bg-cream:focus-visible .liquid-layer { opacity: 0.85; }
 
   @media (prefers-reduced-motion: reduce) {
     .liquid-layer,
