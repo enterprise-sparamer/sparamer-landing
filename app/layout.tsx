@@ -81,6 +81,28 @@ export default function RootLayout({
       }
     >
       <body>
+        {/* Global SVG defs — gooey filter for the liquid button blobs.
+            Mounted once, referenced via filter: url(#liquid-goo). */}
+        <svg
+          aria-hidden
+          focusable="false"
+          width="0"
+          height="0"
+          style={{ position: "absolute" }}
+        >
+          <defs>
+            <filter id="liquid-goo">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+              <feColorMatrix
+                in="blur"
+                mode="matrix"
+                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 16 -6"
+                result="goo"
+              />
+              <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+            </filter>
+          </defs>
+        </svg>
         {children}
         <HoverPreview />
         <script

@@ -165,26 +165,36 @@ body::before {
     filter: blur(60px);
   }
 
-  /* Constructivist stamp animation — buttons + active nav indicator.
-     The figure starts offset, tilted, and small, then settles into place
-     rotated slightly off-axis. On press it shrinks and tilts back. */
-  @keyframes stamp-in {
-    0%   { opacity: 0; transform: translate(-6px, 4px) rotate(-10deg) scale(0.6); }
-    55%  { opacity: 1; transform: translate(2px, -2px) rotate(8deg) scale(1.06); }
-    100% { opacity: 1; transform: translate(0, 0) rotate(6deg) scale(1); }
+  /* Liquid stamp layer — mustard blobs orbiting inside the button.
+     framer-motion drives the orbits; CSS gates visibility/intensity on
+     hover/active. The SVG goo filter (#liquid-goo, in root layout) merges
+     the blobs' alphas at the edges so they coalesce like mercury. The
+     button surface clips them via overflow-hidden + rounded-full. */
+  .liquid-layer {
+    opacity: 0.42;
+    transition: opacity 320ms var(--stamp-ease),
+                transform 320ms var(--stamp-ease);
   }
-  @keyframes stamp-press {
-    0%   { transform: translate(0, 0) rotate(6deg) scale(1); }
-    100% { transform: translate(0, 1px) rotate(4deg) scale(0.96); }
+  .btn-v2:hover .liquid-layer,
+  .btn-v2:focus-visible .liquid-layer {
+    opacity: 1;
+    transform: scale(1.04);
   }
+  .btn-v2:active .liquid-layer {
+    opacity: 1;
+    transform: scale(1.12);
+    transition-duration: 140ms;
+  }
+  /* Secondary variant has a cream surface, so the liquid needs to be more
+     restrained at rest to avoid muddy clumps in the empty pill. */
+  .btn-v2.bg-cream .liquid-layer { opacity: 0.28; }
+  .btn-v2.bg-cream:hover .liquid-layer,
+  .btn-v2.bg-cream:focus-visible .liquid-layer { opacity: 0.85; }
+
   @media (prefers-reduced-motion: reduce) {
-    .btn-v2 .btn-stamp { animation: none !important; }
-    .btn-v2:hover .btn-stamp,
-    .btn-v2:focus-visible .btn-stamp {
-      opacity: 1;
-      transform: none;
-      transition: opacity 120ms linear;
-    }
+    .liquid-layer,
+    .btn-v2:hover .liquid-layer,
+    .btn-v2:active .liquid-layer { transition: none; transform: none; }
   }
 }
 
