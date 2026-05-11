@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import { PostSubmitJourney } from "@/components/sections/PostSubmitJourney";
+import { Button } from "@/components/ui/Button";
 
 type Answers = {
   goal?: "vender" | "centralizar" | "escalar" | "lancar";
@@ -138,7 +139,7 @@ function recommend(answers: Answers): Recommendation {
   }
 
   return {
-    service: "Diagnóstico personalizado",
+    service: "Consulta personalizada",
     tag: "conversa exploratória sem compromisso",
     scope: "a alinhar",
     involves:
@@ -372,7 +373,7 @@ export function Diagnostico() {
               lineHeight: 1.25,
             }}
           >
-            Diagnóstico gratuito em 60 segundos.
+            Consulta gratuita em 60 segundos.
           </h2>
           <p className="mt-3 text-[14px] leading-[1.55] text-ink-55">
             3 perguntas rápidas. Você recebe um plano sob medida — sem custo, sem ligação obrigatória.
@@ -544,15 +545,14 @@ export function Diagnostico() {
             )}
 
             <div className="mt-6 flex flex-wrap items-center gap-4">
-              <button
+              <Button
                 type="submit"
                 disabled={pending}
                 aria-disabled={pending}
                 aria-busy={pending}
-                className="btn-primary"
               >
                 {pending ? "Enviando…" : "Receber meu plano gratuito"}
-              </button>
+              </Button>
               <button
                 type="button"
                 onClick={goBack}

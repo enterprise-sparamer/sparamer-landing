@@ -5,13 +5,20 @@
 :root {
   --color-cream:    #F5F1E8;
   --color-ink:      #1A1A1A;
-  --color-olive:    #5A6B3A;
-  --color-mostarda: #C9A227;
+  --color-olive:           #4F6231;
+  --color-olive-deep:      #3E4E26;
+  --color-mostarda:        #C9A227;
   /* AA-compliant darkened mustard (~5.6:1 on cream). Use for any text or
      icon that must meet WCAG 2.2 AA contrast on a cream background. The
      base --color-mostarda is reserved for decorative shapes. */
   --color-mostarda-strong: #8a6e15;
+  --color-mostarda-stamp:  #D8B43A;
   --color-ceramica: #B4503A;
+
+  /* Stamp animation tokens — shared by buttons and active-nav indicator */
+  --stamp-shadow:   rgba(26, 26, 26, 0.14);
+  --stamp-duration: 220ms;
+  --stamp-ease:     cubic-bezier(0.22, 1, 0.36, 1);
 
   --color-ink-85:   rgba(26, 26, 26, 0.85);
   --color-ink-78:   rgba(26, 26, 26, 0.78);
@@ -158,37 +165,26 @@ body::before {
     filter: blur(60px);
   }
 
-  /* Global button system — mustard → olive on hover */
-  .btn-primary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 48px;
-    padding: 12px 22px;
-    background: var(--color-mostarda);
-    color: var(--color-ink);
-    font-family: var(--font-sans);
-    font-weight: 500;
-    font-size: 14px;
-    border: 1px solid var(--color-mostarda);
-    cursor: pointer;
-    transition: background-color 180ms ease, border-color 180ms ease, color 180ms ease;
+  /* Constructivist stamp animation — buttons + active nav indicator.
+     The figure starts offset, tilted, and small, then settles into place
+     rotated slightly off-axis. On press it shrinks and tilts back. */
+  @keyframes stamp-in {
+    0%   { opacity: 0; transform: translate(-6px, 4px) rotate(-10deg) scale(0.6); }
+    55%  { opacity: 1; transform: translate(2px, -2px) rotate(8deg) scale(1.06); }
+    100% { opacity: 1; transform: translate(0, 0) rotate(6deg) scale(1); }
   }
-  .btn-primary:hover:not(:disabled) {
-    background: var(--color-olive);
-    border-color: var(--color-olive);
-    color: var(--color-cream);
-  }
-  .btn-primary:focus-visible {
-    outline: 2px solid var(--color-mostarda-strong);
-    outline-offset: 2px;
-  }
-  .btn-primary:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
+  @keyframes stamp-press {
+    0%   { transform: translate(0, 0) rotate(6deg) scale(1); }
+    100% { transform: translate(0, 1px) rotate(4deg) scale(0.96); }
   }
   @media (prefers-reduced-motion: reduce) {
-    .btn-primary { transition: none; }
+    .btn-v2 .btn-stamp { animation: none !important; }
+    .btn-v2:hover .btn-stamp,
+    .btn-v2:focus-visible .btn-stamp {
+      opacity: 1;
+      transform: none;
+      transition: opacity 120ms linear;
+    }
   }
 }
 
@@ -245,19 +241,37 @@ body::before {
   font-size: 13px;
 }
 .nav-links a {
+  position: relative;
   color: var(--color-ink-70);
   text-decoration: none;
-  border-bottom: 1px solid transparent;
-  padding-bottom: 2px;
-  transition: color 180ms ease, border-color 180ms ease;
+  padding-bottom: 6px;
+  border-bottom: 0;
+  transition: color 180ms ease;
+}
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 6px;
+  height: 6px;
+  background: var(--color-mostarda);
+  transform: scale(0) rotate(-12deg);
+  transform-origin: left bottom;
+  transition: transform 220ms var(--stamp-ease);
 }
 .nav-links a:hover {
   color: var(--color-ink);
-  border-bottom-color: var(--color-ceramica);
+}
+.nav-links a:hover::after,
+.nav-links a[data-active="true"]::after {
+  transform: scale(1) rotate(0);
 }
 .nav-links a[data-active="true"] {
   color: var(--color-ink);
-  border-bottom-color: var(--color-ceramica);
+}
+@media (prefers-reduced-motion: reduce) {
+  .nav-links a::after { transition: none; }
 }
 
 .nav-cta {
@@ -345,15 +359,40 @@ body::before {
   display: block;
 }
 .mobile-menu a {
+  position: relative;
   display: block;
-  padding: 12px 0;
+  padding: 12px 0 12px 18px;
   font-size: 15px;
-  color: var(--color-ink);
+  color: var(--color-ink-70);
   text-decoration: none;
   border-bottom: 0.5px solid var(--color-ink-15);
+  transition: color 180ms ease;
+}
+.mobile-menu a::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: var(--color-mostarda);
+  transform: translateY(-50%) scale(0) rotate(-12deg);
+  transform-origin: left center;
+  transition: transform 220ms var(--stamp-ease);
+}
+.mobile-menu a:hover,
+.mobile-menu a[data-active="true"] {
+  color: var(--color-ink);
+}
+.mobile-menu a:hover::before,
+.mobile-menu a[data-active="true"]::before {
+  transform: translateY(-50%) scale(1) rotate(0);
 }
 .mobile-menu a:last-of-type {
   border-bottom: 0;
+}
+@media (prefers-reduced-motion: reduce) {
+  .mobile-menu a::before { transition: none; }
 }
 
 @media (max-width: 767.98px) {

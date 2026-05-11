@@ -17,10 +17,14 @@ const config: Config = {
           40: "var(--color-ink-40)",
           15: "var(--color-ink-15)",
         },
-        olive: "var(--color-olive)",
+        olive: {
+          DEFAULT: "var(--color-olive)",
+          deep: "var(--color-olive-deep)",
+        },
         mostarda: {
           DEFAULT: "var(--color-mostarda)",
           strong: "var(--color-mostarda-strong)",
+          stamp: "var(--color-mostarda-stamp)",
         },
         ceramica: "var(--color-ceramica)",
       },

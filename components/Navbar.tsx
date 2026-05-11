@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { Button } from "@/components/ui/Button";
 
 type SectionId = "servicos" | "metodo" | "sobre";
 
@@ -154,12 +155,15 @@ export function Navbar() {
         </nav>
 
         <div className="nav-cta">
-          <Link href="/diagnostico" className="nav-ghost">
-            diagnóstico
+          <Link href="/consulta" className="nav-ghost">
+            consulta
           </Link>
-          <Link href="/contato" className="btn-primary nav-cta-primary">
+          <Button
+            href="/contato"
+            className="nav-cta-primary !py-2 !px-4 !text-[13px]"
+          >
             conversar <span aria-hidden="true">→</span>
-          </Link>
+          </Button>
         </div>
 
         <button
@@ -193,12 +197,29 @@ export function Navbar() {
         aria-hidden={!menuOpen}
         inert={!menuOpen}
       >
-        {NAV_LINKS.map((link) => (
-          <Link key={link.href} href={link.href}>
-            {link.label}
-          </Link>
-        ))}
-        <Link href="/diagnostico">diagnóstico</Link>
+        {NAV_LINKS.map((link) => {
+          const active =
+            link.id !== null
+              ? isHome && activeSection === link.id
+              : pathname === link.href || pathname.startsWith(`${link.href}/`);
+          return (
+            <Link
+              key={link.href}
+              href={link.href}
+              data-active={active}
+              aria-current={active ? "page" : undefined}
+            >
+              {link.label}
+            </Link>
+          );
+        })}
+        <Link
+          href="/consulta"
+          data-active={pathname === "/consulta"}
+          aria-current={pathname === "/consulta" ? "page" : undefined}
+        >
+          consulta
+        </Link>
       </div>
     </header>
   );

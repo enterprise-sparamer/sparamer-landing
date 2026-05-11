@@ -114,7 +114,7 @@ export function CTAForm() {
           <div className="flex items-end gap-6 lg:flex-col lg:items-end lg:gap-3">
             <ContatoMark />
             <p className="max-w-[28ch] text-[13px] leading-[1.5] text-ink/80 lg:text-right">
-              Diagnóstico inicial em até 24h úteis. PT · ES · EN.
+              Consulta inicial em até 24h úteis. PT · ES · EN.
             </p>
           </div>
         </motion.header>

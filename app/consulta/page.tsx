@@ -4,22 +4,22 @@ import { Footer } from "@/components/Footer";
 import { Diagnostico } from "@/components/sections/Diagnostico";
 import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo";
 
-const TITLE = "Diagnóstico de automação";
+const TITLE = "Consulta de automação";
 const DESCRIPTION =
   "Receba um plano de automação e integrações sob medida para a sua empresa. Três perguntas, sem custo, com resposta por e-mail em até 24h úteis.";
 
 export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
-  alternates: { canonical: "/diagnostico" },
+  alternates: { canonical: "/consulta" },
   openGraph: {
     title: TITLE,
     description: DESCRIPTION,
-    url: absoluteUrl("/diagnostico"),
+    url: absoluteUrl("/consulta"),
   },
 };
 
-export default function DiagnosticoPage() {
+export default function ConsultaPage() {
   return (
     <>
       <Navbar />
@@ -39,7 +39,7 @@ export default function DiagnosticoPage() {
             border: 0,
           }}
         >
-          Diagnóstico de automação — Sparamer
+          Consulta de automação — Sparamer
         </h1>
         <Diagnostico />
       </main>
@@ -50,7 +50,7 @@ export default function DiagnosticoPage() {
           __html: JSON.stringify(
             breadcrumbJsonLd([
               { name: "Início", path: "/" },
-              { name: "Diagnóstico", path: "/diagnostico" },
+              { name: "Consulta", path: "/consulta" },
             ]),
           ),
         }}

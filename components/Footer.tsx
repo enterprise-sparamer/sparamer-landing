@@ -14,7 +14,7 @@ const columns = [
     title: "Empresa",
     links: [
       { href: "/sobre", label: "Sobre" },
-      { href: "/diagnostico", label: "Diagnóstico gratuito" },
+      { href: "/consulta", label: "Consulta gratuita" },
       { href: "/contato", label: "Contato" },
       { href: "/legal", label: "Legal · LGPD" },
     ],
@@ -78,14 +78,14 @@ export function Footer() {
                           href={link.href}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-sm text-cream transition-colors hover:text-mostarda"
+                          className="text-sm text-cream transition-colors hover:text-mostarda-stamp"
                         >
                           {link.label} ↗
                         </a>
                       ) : (
                         <Link
                           href={link.href}
-                          className="text-sm text-cream transition-colors hover:text-mostarda"
+                          className="text-sm text-cream transition-colors hover:text-mostarda-stamp"
                         >
                           {link.label}
                         </Link>

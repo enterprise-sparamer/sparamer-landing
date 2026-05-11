@@ -16,7 +16,7 @@ export function Badge({
         className
       )}
     >
-      {dot && <span className="h-1.5 w-1.5 rounded-full bg-mostarda" />}
+      {dot && <span className="h-1.5 w-1.5 rounded-full bg-mostarda-stamp" />}
       {children}
     </span>
   );
