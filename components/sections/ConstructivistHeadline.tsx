@@ -27,7 +27,12 @@ const LINES: LineDef[] = [
 const BASELINE = 0.78;
 const LINE_HEIGHT_FACTOR = 0.98;
 
-/* ─── Per-line shapes — fill the line vertically, drift horizontally ── */
+/* ─── Per-line liquid pool — ONE blob drifts through each line ──────────
+   Single mercury circle per line, sized to fill the line height with a
+   small margin. The form stays constructivist (hard-edged circle, primary
+   color from the palette); the motion is liquid (slow horizontal drift,
+   asymmetric scale morph so the pool breathes as it travels). Each line
+   gets its own palette tone for constructivist rhythm without chaos. */
 
 type ShapeProps = {
   variant: LineDef["variant"];
@@ -38,147 +43,45 @@ type ShapeProps = {
 };
 
 function LineShapes({ variant, lineY, lineH, width, paused }: ShapeProps) {
-  const sq = Math.max(24, lineH * 0.78);
-  const tri = Math.max(20, lineH * 0.7);
-  const r1 = Math.max(18, lineH * 0.5);
-  const r2 = Math.max(14, lineH * 0.36);
+  // Sized to fit fully within this line's vertical band so the clipPath
+  // (built from all lines' text) never lets the pool bleed into adjacent
+  // lines' letterforms.
+  const radius = lineH * 0.48;
+  const cy = lineY + lineH * 0.5;
+
+  // Per-line tone + drift cadence. Different durations + directions so the
+  // three lines feel like independent currents, not a synchronized march.
+  const config =
+    variant === "alpha"
+      ? {
+          fill: cssVar.olive,
+          duration: 22,
+          path: [-radius, width * 0.35, width * 0.7, width + radius],
+        }
+      : variant === "beta"
+      ? {
+          fill: cssVar.mostarda,
+          duration: 17,
+          path: [width + radius, width * 0.55, width * 0.25, -radius],
+        }
+      : {
+          fill: cssVar.olive,
+          duration: 26,
+          path: [-radius, width * 0.4, width * 0.75, width + radius],
+        };
 
   const loop = paused
     ? { duration: 0 }
     : { repeat: Infinity, repeatType: "loop" as const };
 
-  if (variant === "alpha") {
-    return (
-      <>
-        <motion.rect
-          y={lineY + lineH * 0.12}
-          width={sq}
-          height={sq}
-          fill={cssVar.mostarda}
-          animate={
-            paused
-              ? { x: width * 0.35 }
-              : { x: [-sq, width * 0.35, width * 0.8, width + sq] }
-          }
-          transition={{ ...loop, duration: 14, ease: "linear" }}
-        />
-        <motion.polygon
-          points={`0,0 ${tri},0 ${tri / 2},${tri}`}
-          fill={cssVar.ceramica}
-          animate={
-            paused
-              ? { x: width * 0.55, y: lineY + lineH * 0.2 }
-              : {
-                  x: [-tri, width * 0.5, width + tri],
-                  y: [
-                    lineY + lineH * 0.22,
-                    lineY + lineH * 0.18,
-                    lineY + lineH * 0.26,
-                  ],
-                }
-          }
-          transition={{ ...loop, duration: 11, ease: "easeInOut" }}
-        />
-        <motion.circle
-          cy={lineY + lineH * 0.55}
-          r={r1}
-          fill={cssVar.olive}
-          animate={
-            paused
-              ? { cx: width * 0.7 }
-              : { cx: [width + r1, width * 0.6, -r1] }
-          }
-          transition={{ ...loop, duration: 13, ease: "easeInOut" }}
-        />
-      </>
-    );
-  }
-
-  if (variant === "beta") {
-    return (
-      <>
-        <motion.circle
-          cy={lineY + lineH * 0.45}
-          r={lineH * 0.65}
-          fill={cssVar.olive}
-          animate={
-            paused
-              ? { cx: width * 0.3 }
-              : { cx: [-lineH * 0.7, width * 0.4, width * 0.85, width + lineH * 0.7] }
-          }
-          transition={{ ...loop, duration: 9, ease: "easeInOut" }}
-        />
-        <motion.rect
-          y={lineY + lineH * 0.2}
-          width={sq * 0.85}
-          height={sq * 0.85}
-          fill={cssVar.mostarda}
-          animate={
-            paused
-              ? { x: width * 0.55 }
-              : { x: [width + sq, width * 0.3, -sq] }
-          }
-          transition={{ ...loop, duration: 12, ease: "linear" }}
-        />
-        <motion.circle
-          cy={lineY + lineH * 0.65}
-          r={r2}
-          fill={cssVar.ceramica}
-          animate={
-            paused
-              ? { cx: width * 0.5 }
-              : { cx: [width * 0.05, width * 0.75, width * 0.4, width * 0.05] }
-          }
-          transition={{ ...loop, duration: 7, ease: "easeInOut" }}
-        />
-      </>
-    );
-  }
-
-  // gamma
   return (
-    <>
-      <motion.rect
-        y={lineY + lineH * 0.14}
-        width={sq * 0.9}
-        height={sq * 0.9}
-        fill={cssVar.mostarda}
-        animate={
-          paused
-            ? { x: width * 0.4 }
-            : { x: [-sq, width * 0.3, width * 0.7, width + sq] }
-        }
-        transition={{ ...loop, duration: 16, ease: "linear" }}
-      />
-      <motion.circle
-        cy={lineY + lineH * 0.4}
-        r={r1}
-        fill={cssVar.olive}
-        animate={
-          paused
-            ? { cx: width * 0.5 }
-            : { cx: [width + r1, width * 0.55, -r1] }
-        }
-        transition={{ ...loop, duration: 10, ease: "easeInOut" }}
-      />
-      <motion.polygon
-        points={`0,0 ${tri * 0.85},0 ${(tri * 0.85) / 2},${tri * 0.85}`}
-        fill={cssVar.ceramica}
-        animate={
-          paused
-            ? { x: width * 0.6, y: lineY + lineH * 0.28 }
-            : {
-                x: [width + tri, width * 0.4, -tri],
-                y: [
-                  lineY + lineH * 0.25,
-                  lineY + lineH * 0.2,
-                  lineY + lineH * 0.32,
-                ],
-              }
-        }
-        transition={{ ...loop, duration: 13, ease: "easeInOut" }}
-      />
-    </>
+    <motion.circle
+      cy={cy}
+      r={radius}
+      fill={config.fill}
+      animate={paused ? { cx: width * 0.5 } : { cx: config.path }}
+      transition={{ ...loop, duration: config.duration, ease: "easeInOut" }}
+    />
   );
 }
 

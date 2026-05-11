@@ -5,13 +5,15 @@ import { motion, useReducedMotion } from "framer-motion";
 type Variant = "primary" | "secondary" | "ghost";
 
 /**
- * Mustard liquid contained inside a button. Three blobs orbit in independent
- * loops; the global SVG goo filter (#liquid-goo, mounted in root layout)
- * merges their alphas at the edges so they coalesce / separate like mercury.
- * The button itself must clip to the pill shape (overflow-hidden, rounded-full).
+ * Mustard liquid contained inside a button. Two blobs overlap in a tight
+ * central cluster; the global SVG goo filter (#liquid-goo, mounted in root
+ * layout) blurs and re-thresholds their alphas so they read as ONE mercury
+ * body that morphs, never as separate ovals. The button surface clips them
+ * to the pill via overflow-hidden + rounded-full.
  *
- * Idle: low opacity, slow orbit. Hover: full opacity, faster swell.
- * Ghost variant renders nothing — transparent buttons can't contain liquid.
+ * Idle: low opacity, slow morph (mercury in repose). Hover: full opacity,
+ * faster swell (mercury under heat). Active: extra scale-up (splash).
+ * Ghost variant renders nothing — transparent buttons can't hold liquid.
  */
 export function LiquidStamp({ variant }: { variant: Variant }) {
   const reduce = useReducedMotion();
@@ -25,9 +27,11 @@ export function LiquidStamp({ variant }: { variant: Variant }) {
       ? { duration: 0 }
       : { duration, delay, repeat: Infinity, ease: "easeInOut" as const };
 
-  // Three blobs, each with its own orbit. Coordinates are pixel offsets from
-  // each blob's anchored origin (left/top). The goo filter merges them when
-  // their blurred alphas overlap.
+  // Two overlapping blobs, both centered vertically with small offset.
+  // Their orbits cross paths so the goo filter constantly recomputes the
+  // merged silhouette — the result reads as a single morphing mercury body
+  // rather than two distinct circles. Sized as fraction of button height
+  // via percentages so it scales with md/lg without per-size tuning.
   return (
     <span
       aria-hidden
@@ -35,46 +39,50 @@ export function LiquidStamp({ variant }: { variant: Variant }) {
       style={{ filter: "url(#liquid-goo)" }}
     >
       <motion.span
-        className={`${blob} h-9 w-9`}
-        style={{ left: "-6%", top: "30%", ...willChange }}
+        className={blob}
+        style={{
+          left: "30%",
+          top: "50%",
+          width: "55%",
+          height: "180%",
+          x: "-50%",
+          y: "-50%",
+          ...willChange,
+        }}
         animate={
           reduce
             ? undefined
             : {
-                x: [0, 28, 56, 30, 0],
-                y: [-4, 6, -2, 8, -4],
-                scale: [0.9, 1.15, 0.95, 1.1, 0.9],
+                x: ["-58%", "-42%", "-55%", "-45%", "-58%"],
+                y: ["-52%", "-48%", "-50%", "-53%", "-52%"],
+                scaleX: [0.95, 1.1, 0.92, 1.05, 0.95],
+                scaleY: [1.05, 0.9, 1.08, 0.95, 1.05],
               }
         }
-        transition={tween(7.2)}
+        transition={tween(6.4)}
       />
       <motion.span
-        className={`${blob} h-7 w-7`}
-        style={{ left: "38%", top: "18%", ...willChange }}
+        className={blob}
+        style={{
+          left: "55%",
+          top: "50%",
+          width: "50%",
+          height: "170%",
+          x: "-50%",
+          y: "-50%",
+          ...willChange,
+        }}
         animate={
           reduce
             ? undefined
             : {
-                x: [0, -22, 18, -10, 0],
-                y: [0, 10, -6, 4, 0],
-                scale: [1, 1.18, 0.85, 1.08, 1],
+                x: ["-45%", "-58%", "-48%", "-52%", "-45%"],
+                y: ["-48%", "-52%", "-46%", "-50%", "-48%"],
+                scaleX: [1.05, 0.9, 1.08, 0.95, 1.05],
+                scaleY: [0.92, 1.1, 0.95, 1.08, 0.92],
               }
         }
-        transition={tween(5.6, 0.9)}
-      />
-      <motion.span
-        className={`${blob} h-8 w-8`}
-        style={{ right: "-4%", top: "40%", ...willChange }}
-        animate={
-          reduce
-            ? undefined
-            : {
-                x: [0, -30, -10, -40, 0],
-                y: [0, -6, 8, 2, 0],
-                scale: [0.85, 1.1, 0.95, 1.15, 0.85],
-              }
-        }
-        transition={tween(6.4, 1.8)}
+        transition={tween(5.2, 1.1)}
       />
     </span>
   );

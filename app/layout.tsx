@@ -91,12 +91,14 @@ export default function RootLayout({
           style={{ position: "absolute" }}
         >
           <defs>
+            {/* Liquid mercury — strong merge for button blobs at any size,
+                soft color-junction for the composition's olive×mustard join. */}
             <filter id="liquid-goo">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="blur" />
+              <feGaussianBlur in="SourceGraphic" stdDeviation="7" result="blur" />
               <feColorMatrix
                 in="blur"
                 mode="matrix"
-                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 16 -6"
+                values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7"
                 result="goo"
               />
               <feComposite in="SourceGraphic" in2="goo" operator="atop" />

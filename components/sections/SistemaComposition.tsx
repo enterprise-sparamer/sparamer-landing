@@ -24,8 +24,13 @@ export function SistemaComposition() {
       aria-label="Composição visual representando o sistema de automações da Sparamer (círculo oliva, quadrado mostarda, círculo cerâmica)"
       className="w-full h-auto max-w-[440px] mx-auto"
     >
-      <rect x={100} y={180} width={280} height={280} fill="var(--color-mostarda)" />
-      <circle cx={160} cy={180} r={130} fill="var(--color-olive)" />
+      {/* Olive circle × mustard rectangle — wrapped in the global goo filter
+          so the colors bleed across each other where the shapes overlap
+          (liquid join), while the outer edges stay constructivist-sharp. */}
+      <g filter="url(#liquid-goo)">
+        <rect x={100} y={180} width={280} height={280} fill="var(--color-mostarda)" />
+        <circle cx={160} cy={180} r={130} fill="var(--color-olive)" />
+      </g>
       <line x1={40} y1={380} x2={480} y2={380} stroke="var(--color-ink)" strokeWidth={3} />
       <circle cx={400} cy={500} r={80} fill="var(--color-ceramica)" />
       <line x1={400} y1={80} x2={400} y2={380} stroke="var(--color-ink)" strokeWidth={1} strokeOpacity={0.4} />
