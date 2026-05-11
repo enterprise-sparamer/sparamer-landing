@@ -1,0 +1,20 @@
+{
+  "name": "Sparamer",
+  "short_name": "Sparamer",
+  "description": "Engenharia de processos, integrações e automação.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#F5F1E8",
+  "theme_color": "#F5F1E8",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ]
+}
