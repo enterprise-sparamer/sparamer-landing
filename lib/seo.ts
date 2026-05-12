@@ -2,7 +2,20 @@ import type { Metadata } from "next";
 
 // Single source of truth for the production domain.
 // User must confirm this matches the deployed apex before launch.
-export const SITE_URL = "https://sparamer.com";
+const DEFAULT_SITE_URL = "https://sparamer.com";
+
+function normalizeSiteUrl(value?: string): string {
+  if (!value) return DEFAULT_SITE_URL;
+
+  try {
+    const url = new URL(value);
+    return url.origin;
+  } catch {
+    return DEFAULT_SITE_URL;
+  }
+}
+
+export const SITE_URL = normalizeSiteUrl(process.env.SITE_URL);
 
 export const SITE_NAME = "Sparamer";
 export const SITE_LOCALE = "pt_BR";

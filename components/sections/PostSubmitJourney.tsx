@@ -4,52 +4,64 @@ export function PostSubmitJourney() {
       className="diag-journey"
       aria-label="O que acontece depois que você responde"
     >
-      <div className="label-mono">o que acontece depois</div>
+      <p className="diag-journey-label">
+        <span>O que acontece</span>
+        <span className="diag-journey-label-line" aria-hidden />
+        <span>depois</span>
+      </p>
 
-      <ol className="steps">
-        <li>
+      <ol className="diag-journey-steps">
+        <li className="diag-journey-step">
           <span
-            className="step-num"
+            className="diag-journey-num"
             style={{ color: "var(--color-olive)" }}
           >
             01
           </span>
           <div>
-            <p className="step-title">analisamos o seu contexto</p>
-            <p className="step-detail">em até 24h úteis, com atenção real</p>
+            <p className="diag-journey-title">Análise do contexto</p>
+            <p className="diag-journey-detail">
+              Em até 24 h úteis, com atenção real.
+            </p>
           </div>
         </li>
-        <li>
+        <li className="diag-journey-step">
           <span
-            className="step-num"
+            className="diag-journey-num"
             style={{ color: "var(--color-mostarda-strong)" }}
           >
             02
           </span>
           <div>
-            <p className="step-title">enviamos um plano sob medida</p>
-            <p className="step-detail">
-              direto no seu e-mail, escrito pra sua realidade
+            <p className="diag-journey-title">Plano sob medida</p>
+            <p className="diag-journey-detail">
+              Direto no seu e-mail, escrito para a sua realidade.
             </p>
           </div>
         </li>
-        <li>
+        <li className="diag-journey-step">
           <span
-            className="step-num"
+            className="diag-journey-num"
             style={{ color: "var(--color-ceramica)" }}
           >
             03
           </span>
           <div>
-            <p className="step-title">se fizer sentido, conversamos</p>
-            <p className="step-detail">30 minutos de call, sem compromisso</p>
+            <p className="diag-journey-title">Conversa, se fizer sentido</p>
+            <p className="diag-journey-detail">
+              30 minutos de call, sem compromisso.
+            </p>
           </div>
         </li>
       </ol>
 
-      <hr className="divider" />
-
-      <div className="trust-seal">sem CRM · sem newsletter · sem upsell</div>
+      <p className="diag-journey-seal">
+        Sem CRM
+        <br />
+        Sem newsletter
+        <br />
+        Sem upsell
+      </p>
     </aside>
   );
 }

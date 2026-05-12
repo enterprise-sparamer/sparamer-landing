@@ -371,36 +371,37 @@ export function Diagnostico() {
         {/* Running header — document register */}
         <header className="diag-doc-head" aria-hidden>
           <span className="diag-doc-id">
-            <span className="diag-doc-id-strong">Sparamer</span>
+            <span className="diag-doc-id-strong">Consulta</span>
             <span className="diag-doc-id-sep">—</span>
-            <span>Consulta</span>
+            <span>Plano de automação</span>
           </span>
           <span className="diag-doc-meta">
-            <span>Formulário 01</span>
+            <span>Form. 01</span>
             <span className="diag-doc-id-sep">·</span>
-            <span>Edição {DOC_EDITION}</span>
+            <span>{DOC_EDITION}</span>
           </span>
         </header>
         <hr className="diag-rule" />
 
+        {!submitted && (
+          <>
+            <header className="diag-intro">
+              <h2 id="diag-heading" className="diag-display">
+                Um plano de automação sob medida,{" "}
+                <span className="diag-display-soft">em três perguntas.</span>
+              </h2>
+              <p className="diag-lead">
+                60&nbsp;segundos para responder. Em até 24&nbsp;h úteis
+                enviamos o plano direto no seu e-mail — sem custo, sem ligação
+                obrigatória.
+              </p>
+            </header>
+            <hr className="diag-rule" />
+          </>
+        )}
+
         <div className="diag-grid">
           <div className="diag-main">
-            {!submitted && (
-              <header className="diag-intro">
-                <h2 id="diag-heading" className="diag-display">
-                  <span className="diag-display-line">Três perguntas.</span>
-                  <span className="diag-display-line diag-display-soft">
-                    Um plano sob medida.
-                  </span>
-                </h2>
-                <p className="diag-lead">
-                  60 segundos para responder. Em até 24&nbsp;h úteis enviamos o
-                  plano direto no seu e-mail — escrito para o seu contexto, não
-                  para o seu segmento.
-                </p>
-              </header>
-            )}
-
             {!submitted && (
               <div
                 className="diag-step-register"
@@ -587,8 +588,8 @@ export function Diagnostico() {
                   </svg>
                 </span>
                 <h2 id="diag-heading" className="diag-display">
-                  <span className="diag-display-line">Recebido.</span>
-                  <span className="diag-display-line diag-display-soft">
+                  Recebido.{" "}
+                  <span className="diag-display-soft">
                     Resposta em 24&nbsp;h úteis.
                   </span>
                 </h2>

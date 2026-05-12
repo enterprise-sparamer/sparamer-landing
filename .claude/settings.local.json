@@ -1,0 +1,33 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /Users/agneta/Sparamer -type f 2>/dev/null | head -50)",
+      "Read(//Users/agneta/Sparamer/**)",
+      "WebSearch",
+      "Bash(npm --version)",
+      "Bash(npm run *)",
+      "Bash(npm install *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(kill -9 43463)",
+      "Bash(lsof -ti:3000)",
+      "Bash(xargs -r kill -9)",
+      "Bash(lsof -ti:3001)",
+      "Bash(curl -s -o /dev/null -w \"HTTP %{http_code}\\\\n\" http://localhost:3000)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(npx next *)",
+      "Bash(ls /Users/agneta/.claude/plans 2>/dev/null || echo \"plans dir does not exist\")",
+      "Read(//Users/agneta/.claude/plans/**)",
+      "Bash(tail -30 /tmp/sparamer-dev.log)",
+      "Read(//private/tmp/**)",
+      "Bash(kill 45060)",
+      "Bash(curl -s -o /tmp/diag.html -w \"%{http_code}\\\\n\" \"http://localhost:3000/diagnostico?path=zoho\")",
+      "Read(//tmp/**)",
+      "Bash(npx tsc *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/diagnostico)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)"
+    ]
+  }
+}
