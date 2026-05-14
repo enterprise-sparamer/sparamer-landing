@@ -22,7 +22,7 @@ const columns = [
   {
     title: "Conecte",
     links: [
-      { href: "https://wa.me/5521991830281", label: "WhatsApp", external: true },
+      { href: "https://wa.me/5521991830821", label: "WhatsApp", external: true },
       { href: "mailto:contact@chapi.dev", label: "contact@chapi.dev" },
     ],
   },

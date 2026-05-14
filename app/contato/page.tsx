@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
 const WHATSAPP_URL = "https://wa.me/5521991830281";
 const EMAIL = "contact@chapi.dev";
-const PHONE_DISPLAY = "+55 21 99183-0281";
+const PHONE_DISPLAY = "+55 21 99183-0821";
 
 const company = [
   {

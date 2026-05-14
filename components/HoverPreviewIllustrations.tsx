@@ -472,7 +472,7 @@ function WhatsApp({ a }: { a: string }) {
           return <rect key={x} x={x} y={56 - h / 2} width="3" height={h} fill={a} fillOpacity={0.85} />;
         })}
       </g>
-      <Mono x={130} y={86} opacity={0.55}>+55 21 99183-0281</Mono>
+      <Mono x={130} y={86} opacity={0.55}>+55 21 99183-0821</Mono>
       <Mono x={130} y={98} opacity={0.4}>HORÁRIO COMERCIAL</Mono>
     </>
   );

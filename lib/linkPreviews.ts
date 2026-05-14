@@ -232,7 +232,7 @@ export function resolvePreview(rawHref: string, anchorText?: string): LinkPrevie
       return {
         number: "06·w",
         title: "WhatsApp",
-        subtitle: "Mensagem direta com quem executa. +55 21 99183-0281.",
+        subtitle: "Mensagem direta com quem executa. +55 21 99183-0821.",
         illustration: "whatsapp",
         accent: "olive",
       };
