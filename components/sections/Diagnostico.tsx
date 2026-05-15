@@ -215,6 +215,7 @@ export function Diagnostico() {
   const [hydrated, setHydrated] = useState(false);
   const [step, setStep] = useState(0);
   const [answers, setAnswers] = useState<Answers>({});
+  const [companyName, setCompanyName] = useState("");
   const [email, setEmail] = useState("");
   const [pending, setPending] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -269,7 +270,7 @@ export function Diagnostico() {
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    if (!email || !email.includes("@")) return;
+    if (!companyName.trim() || !email || !email.includes("@")) return;
     setError(null);
     setPending(true);
     try {
@@ -277,6 +278,7 @@ export function Diagnostico() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          companyName,
           email,
           answers,
           recommendation: recommend(answers),
@@ -524,8 +526,23 @@ export function Diagnostico() {
             {!submitted && onEmailStep && (
               <form onSubmit={handleSubmit} className="diag-step" noValidate>
                 <h3 className="diag-q-title">
-                  Para qual e-mail enviamos o seu plano?
+                  Para onde enviamos o seu plano?
                 </h3>
+
+                <label htmlFor="diag-company" className="diag-email-label">
+                  Nome da empresa
+                </label>
+                <input
+                  id="diag-company"
+                  type="text"
+                  name="companyName"
+                  autoComplete="organization"
+                  required
+                  value={companyName}
+                  onChange={(e) => setCompanyName(e.target.value)}
+                  placeholder="Sua empresa"
+                  className="diag-email-input"
+                />
 
                 <label htmlFor="diag-email" className="diag-email-label">
                   Endereço de e-mail

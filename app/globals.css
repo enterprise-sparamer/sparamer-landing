@@ -879,6 +879,9 @@ body::before {
   align-items: center;
   gap: 24px;
 }
+.diag-email-input + .diag-email-label {
+  margin-top: clamp(24px, 2vw, 32px);
+}
 
 /* Success */
 .diag-success { padding-top: 8px; }
