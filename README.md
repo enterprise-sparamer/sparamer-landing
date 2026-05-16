@@ -96,8 +96,8 @@ For this project, the Fly.io setup resolved to standard apex records:
 
 Example values used in this deployment:
 
-- `A` -> `66.241.125.198`
-- `AAAA` -> `2a09:8280:1::114:e20b:0`
+- `A` -> `IPv4`
+- `AAAA` -> `IPv6`
 
 In GoDaddy, the usual configuration is:
 
@@ -134,12 +134,8 @@ In Zoho CRM:
 2. create the lead flow needed for the campaign
 3. generate the Webform
 
-The project currently expects the Webform to provide the hidden values required by Zoho WebToLead, such as:
+The project currently expects the Webform to provide the hidden values required by Zoho WebToLead.
 
-- `xnQsjsdp`
-- `xmIwtLD`
-- `actionType`
-- `returnURL`
 
 ### 7. Add Zoho environment values to Fly secrets
 
