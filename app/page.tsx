@@ -4,6 +4,7 @@ import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/sections/Hero";
 import { Diagnostico } from "@/components/sections/Diagnostico";
 import { ServicosSection } from "@/components/sections/ServicosSection";
+import { CasosSection } from "@/components/sections/CasosSection";
 import { Method } from "@/components/sections/Method";
 import { CTAForm } from "@/components/sections/CTAForm";
 import {
@@ -34,6 +35,7 @@ export default function HomePage() {
         <Hero />
         <Diagnostico />
         <ServicosSection />
+        <CasosSection />
         <Method />
         <CTAForm />
       </main>

@@ -10,6 +10,7 @@ type SectionId = "servicos" | "metodo" | "sobre";
 const NAV_LINKS: { id: SectionId | null; href: string; label: string }[] = [
   { id: "servicos", href: "/#servicos", label: "serviços" },
   { id: "metodo",   href: "/#metodo",   label: "método" },
+  { id: null,       href: "/casos",     label: "casos" },
   { id: null,       href: "/sobre",     label: "sobre" },
 ];
 

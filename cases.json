@@ -1,0 +1,164 @@
+{
+  "$schema": "https://sparamer.com/schemas/casos.v1.json",
+  "version": "1.0.0",
+  "updated_at": "2026-05-15",
+  "casos": [
+    {
+      "id": "billing-silent-failure",
+      "slug": "automacao-faturamento-resiliente",
+      "frente": "zoho",
+      "titulo": "Resumos de faturamento que paravam de chegar — sem erro, sem aviso",
+      "subtitulo": "Reescrita de um módulo crítico de billing com chunking adaptativo e observabilidade ponta-a-ponta.",
+      "cliente": {
+        "descricao": "Empresa de serviços profissionais B2B",
+        "porte": "~50 colaboradores",
+        "regiao": "América Latina",
+        "ano": 2025,
+        "anonimo": true
+      },
+      "contexto": "O time financeiro dependia de um script Deluge que gerava resumos mensais de faturamento e enviava por e-mail para a liderança. O script rodava sem erro aparente, mas em meses de alto volume os e-mails simplesmente não chegavam. Não havia alerta, não havia log de falha — só ausência. Decisões de fechamento eram tomadas com dados incompletos.",
+      "diagnostico": "Identificamos uma falha silenciosa na API de envio do Zoho: bodies acima de um limite não documentado eram aceitos pela chamada, mas descartados antes do envio. Como o script confiava no status de sucesso retornado, nenhum monitoramento jamais sinalizou o problema. O bug existia há meses.",
+      "solucao": [
+        "Reescrita do módulo de faturamento com chunking adaptativo no corpo do e-mail",
+        "Validação de tamanho pré-envio com fallback para múltiplos envios encadeados",
+        "Logging estruturado por job, com retenção de 90 dias e alertas em caso de falha",
+        "Testes automatizados cobrindo cenários de alto volume e edge cases de payload"
+      ],
+      "resultados": [
+        {
+          "metrica": "Entregabilidade dos resumos mensais",
+          "antes": "~70% nos meses de alto volume",
+          "depois": "100% em 6 meses consecutivos"
+        },
+        {
+          "metrica": "Retrabalho manual do time financeiro",
+          "antes": "~4 horas/mês reconciliando dados ausentes",
+          "depois": "Zero"
+        },
+        {
+          "metrica": "Confiança nos relatórios automáticos",
+          "antes": "Liderança duplicava trabalho manualmente",
+          "depois": "Relatórios passaram a ser fonte primária de decisão"
+        }
+      ],
+      "stack": ["Zoho Deluge", "Zoho Books", "Zoho People"],
+      "duracao_semanas": 3,
+      "tipo_engajamento": "Diagnóstico + Implementação",
+      "destaque_home": true,
+      "ordem_home": 1
+    },
+    {
+      "id": "risk-tool-ai-pipeline",
+      "slug": "plataforma-gestao-risco-com-ia",
+      "frente": "integracoes",
+      "titulo": "Plataforma de gestão de risco com pipeline de IA classificando tickets em tempo real",
+      "subtitulo": "Arquitetura cloud-native com Cloud Run, fila assíncrona e classificação por LLM para um time de compliance que recebia centenas de eventos por semana.",
+      "cliente": {
+        "descricao": "Empresa de serviços profissionais com operação multi-país",
+        "porte": "Médio porte",
+        "regiao": "Operação internacional, sede na América Latina",
+        "ano": 2025,
+        "anonimo": true
+      },
+      "contexto": "O time de compliance recebia eventos de risco vindos de múltiplas fontes — formulários internos, e-mails, integrações com ferramentas de auditoria — e precisava classificar manualmente cada um por severidade, área impactada e ação necessária. O backlog crescia mais rápido do que a capacidade de triagem, e eventos críticos se misturavam com ruído.",
+      "diagnostico": "O problema não era falta de processo, era falta de camada de classificação automática antes do humano. Toda hora gasta em triagem básica era hora não gasta em mitigação real. Identificamos que ~70% dos eventos tinham padrão claro o suficiente para pré-classificação automática confiável.",
+      "solucao": [
+        "Backend em Python sobre Cloud Run, com escalonamento automático por carga",
+        "Pipeline de ingestão multi-fonte (webhooks, polling de e-mail, API REST)",
+        "Classificação por LLM (Gemini) com prompts versionados e fallback determinístico",
+        "Dashboard de compliance em tempo real com filtros por severidade e área",
+        "Workflow de aprovação humana para casos de alta severidade ou baixa confiança da IA"
+      ],
+      "resultados": [
+        {
+          "metrica": "Tempo médio de triagem por evento",
+          "antes": "~12 minutos manuais",
+          "depois": "~90 segundos (revisão humana sobre pré-classificação)"
+        },
+        {
+          "metrica": "Eventos críticos identificados na primeira hora",
+          "antes": "~40%",
+          "depois": "~95%"
+        },
+        {
+          "metrica": "Capacidade de processamento semanal",
+          "antes": "Limite de ~300 eventos antes do backlog estourar",
+          "depois": "~1.500 eventos sem aumento de headcount"
+        }
+      ],
+      "stack": ["Python", "Google Cloud Run", "Cloud SQL", "Gemini API", "Zoho Creator"],
+      "duracao_semanas": 10,
+      "tipo_engajamento": "Diagnóstico + Implementação + Operação",
+      "destaque_home": true,
+      "ordem_home": 2
+    },
+    {
+      "id": "pm-people-sync",
+      "slug": "sincronizacao-projetos-rh-bidirecional",
+      "frente": "zoho",
+      "titulo": "Quando o RH e o gerenciamento de projetos paravam de conversar entre si",
+      "subtitulo": "Integração bidirecional entre Zoho Projects e Zoho People, eliminando dupla digitação e inconsistências de alocação.",
+      "cliente": {
+        "descricao": "Empresa de serviços técnicos com times distribuídos",
+        "porte": "Médio porte",
+        "regiao": "Operação remota multi-país",
+        "ano": 2025,
+        "anonimo": true
+      },
+      "contexto": "Cada novo projeto exigia que o PMO cadastrasse manualmente os colaboradores envolvidos no Projects, enquanto o time de People mantinha a verdade sobre quem estava ativo, em férias, ou desligado. As duas bases divergiam constantemente. Aprovações de PTO não consideravam alocações em projetos críticos, e dashboards executivos mostravam números que ninguém conseguia explicar.",
+      "diagnostico": "Não era um problema de pessoa, era um problema de fonte da verdade. Sem uma camada de sincronização confiável, qualquer esforço manual de manter as bases alinhadas era arrastado pelo volume de mudanças semanais.",
+      "solucao": [
+        "Sincronização bidirecional entre Zoho Projects e Zoho People com regras de precedência claras",
+        "Workflow de aprovação de PTO que valida automaticamente alocações em projetos",
+        "Detecção e log de divergências com notificação para o PMO",
+        "Documentação operacional para que o time interno consiga ajustar regras sem depender de fornecedor"
+      ],
+      "resultados": [
+        {
+          "metrica": "Inconsistências entre Projects e People",
+          "antes": "Detectadas em reuniões, semanas depois",
+          "depois": "Zero divergências não resolvidas em 4 meses"
+        },
+        {
+          "metrica": "Tempo do PMO em cadastros manuais",
+          "antes": "~6 horas/semana",
+          "depois": "~30 minutos/semana de revisão"
+        },
+        {
+          "metrica": "Aprovações de PTO em conflito com projetos críticos",
+          "antes": "Recorrentes, descobertas tarde",
+          "depois": "Bloqueadas automaticamente antes da aprovação"
+        }
+      ],
+      "stack": ["Zoho Deluge", "Zoho Projects", "Zoho People"],
+      "duracao_semanas": 4,
+      "tipo_engajamento": "Diagnóstico + Implementação",
+      "destaque_home": true,
+      "ordem_home": 3
+    }
+  ],
+  "anti_casos": {
+    "titulo": "Quando não somos a melhor escolha",
+    "subtitulo": "Honestidade economiza tempo dos dois lados.",
+    "itens": [
+      "Se o entregável principal do seu projeto é design ou frontend visual de alta sofisticação, há agências melhores para isso. Construímos UI funcional, mas não somos um estúdio de design.",
+      "Se seu projeto exige presença física frequente em escritório, somos remoto-first. Reuniões presenciais pontuais são possíveis, rotina presencial não.",
+      "Se você quer sair do Zoho para outra plataforma, podemos te ajudar a diagnosticar e exportar dados, mas a implementação da nova stack provavelmente faz mais sentido com um especialista da plataforma destino.",
+      "Se você precisa de uma agência que entregue em 5 dias úteis sem diagnóstico prévio, não somos isso. Nosso método começa por entender antes de construir."
+    ]
+  },
+  "notas_internas": {
+    "anonimizacao": "Todos os casos são baseados em projetos reais. Nomes de clientes, setores específicos, tamanhos exatos e identificadores internos foram alterados para preservar confidencialidade. Os números de resultado são representativos da ordem de grandeza real observada.",
+    "uso": "Este arquivo é a fonte da verdade para os casos exibidos em sparamer.com. Edições no copy devem ser feitas aqui e propagadas para o frontend.",
+    "campos_obrigatorios_por_caso": [
+      "id",
+      "frente",
+      "titulo",
+      "cliente.descricao",
+      "contexto",
+      "solucao",
+      "resultados",
+      "stack"
+    ]
+  }
+}
