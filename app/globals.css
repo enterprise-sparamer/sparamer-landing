@@ -1046,11 +1046,30 @@ body::before {
   grid-template-columns: 1fr;
   gap: 20px;
 }
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .servicos-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(2, 1fr);
     gap: 24px;
   }
+}
+
+/* "ver preços" link under the servicos header */
+.servicos-precos-link {
+  display: inline-block;
+  margin-top: 18px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  color: var(--color-ink);
+  border-bottom: 1px solid var(--color-ceramica);
+  padding-bottom: 1px;
+  text-decoration: none;
+  transition: border-color 180ms ease, color 180ms ease;
+}
+.servicos-precos-link:hover {
+  border-bottom-color: var(--color-olive);
+}
+@media (prefers-reduced-motion: reduce) {
+  .servicos-precos-link { transition: none; }
 }
 
 .servico-card {
@@ -1611,6 +1630,13 @@ body::before {
   letter-spacing: 0.02em;
   color: var(--metodo-fg-55);
   white-space: nowrap;
+}
+.phase-invest {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.03em;
+  color: var(--color-mostarda-stamp);
+  margin: 8px 0 0;
 }
 .phase-body {
   display: grid;

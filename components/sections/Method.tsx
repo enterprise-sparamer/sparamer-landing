@@ -308,6 +308,7 @@ function PhaseBlock({ phase, index }: { phase: Phase; index: number }) {
               <span className="phase-title-sep" aria-hidden="true">·</span>
               <span className="phase-title-duration">{phase.duration}</span>
             </h3>
+            <p className="phase-invest">{phase.investimento}</p>
           </div>
         </div>
 

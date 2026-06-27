@@ -5,6 +5,7 @@ export type Phase = {
   color: PhaseColor;
   title: string;
   duration: string;
+  investimento: string;
   entregaveis: string[];
   note: string;
 };
@@ -15,6 +16,7 @@ export const phases: Phase[] = [
     color: "olive",
     title: "Diagnóstico",
     duration: "1 a 3 semanas",
+    investimento: "a partir de R$ 2.500 · creditável no projeto",
     entregaveis: [
       "mapa completo do workflow atual em documento técnico",
       "lista priorizada de gargalos com impacto estimado",
@@ -28,6 +30,7 @@ export const phases: Phase[] = [
     color: "mostarda",
     title: "Implementação",
     duration: "algumas semanas a poucos meses",
+    investimento: "projetos a partir de R$ 6.000",
     entregaveis: [
       "sprints semanais com demo no ambiente de staging",
       "código no seu Git desde o primeiro commit",
@@ -41,6 +44,7 @@ export const phases: Phase[] = [
     color: "ceramica",
     title: "Operação",
     duration: "contínuo",
+    investimento: "retainer a partir de R$ 3.500/mês",
     entregaveis: [
       "monitoramento ativo dos sistemas em produção",
       "suporte em horário comercial, em dias úteis",

@@ -4,16 +4,17 @@ const columns = [
   {
     title: "Serviços",
     links: [
-      { href: "/#servicos", label: "Consultoria Zoho" },
-      { href: "/#servicos", label: "Bots para Discord" },
-      { href: "/#servicos", label: "Integrações entre sistemas" },
-      { href: "/#servicos", label: "Solution Architecture" },
+      { href: "/precos#zoho", label: "Zoho Ecosystem" },
+      { href: "/precos#integracoes", label: "Integrações & Automações" },
+      { href: "/precos#cloud", label: "Cloud / GCP" },
+      { href: "/precos#discord", label: "Discord & Comunidades" },
     ],
   },
   {
     title: "Empresa",
     links: [
       { href: "/sobre", label: "Sobre" },
+      { href: "/precos", label: "Preços" },
       { href: "/consulta", label: "Consulta gratuita" },
       { href: "/contato", label: "Contato" },
       { href: "/legal", label: "Legal · LGPD" },
@@ -22,8 +23,7 @@ const columns = [
   {
     title: "Conecte",
     links: [
-      { href: "https://wa.me/5521991830821", label: "WhatsApp", external: true },
-      { href: "mailto:contact@chapi.dev", label: "contact@chapi.dev" },
+      { href: "mailto:contato@sparamer.com", label: "contato@sparamer.com" },
     ],
   },
 ];
@@ -59,7 +59,7 @@ export function Footer() {
               empresa a crescer sem inflar o time.
             </p>
             <div className="mt-6 flex flex-col gap-1 font-mono text-xs text-cream/45">
-              <span>São Paulo · Brasil</span>
+              <span>São Paulo · remoto do Rio</span>
               <span>UTC−3 · Horário de Brasília</span>
             </div>
           </div>

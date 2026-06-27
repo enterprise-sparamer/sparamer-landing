@@ -93,22 +93,65 @@ const services: ServicoCardProps[] = [
       </svg>
     ),
   },
+  {
+    number: "04",
+    title: "Cloud / GCP",
+    subtitle: "arquitetura e infraestrutura Google Cloud",
+    painLine:
+      "Deploy manual, servidor caindo e conta de nuvem imprevisível? Montamos uma base sólida no Google Cloud — automatizada, observável e com custo sob controle.",
+    deliverables: [
+      "Cloud Run, Cloud SQL, Cloud Storage e Cloud Build",
+      "infraestrutura como código e CI/CD do commit ao deploy",
+      "migração para a nuvem com observabilidade e custo previsível",
+    ],
+    conversarHref: "/contato?topic=cloud",
+    svg: (
+      <svg
+        viewBox="0 0 200 120"
+        role="img"
+        aria-label="Mini-composição constructivista representando Cloud / GCP"
+        preserveAspectRatio="xMidYMid meet"
+      >
+        <rect
+          x="56"
+          y="34"
+          width="84"
+          height="16"
+          fill="none"
+          stroke="var(--color-ink)"
+          strokeOpacity="0.5"
+          strokeWidth="1"
+        />
+        <rect x="56" y="58" width="84" height="16" fill="var(--color-mostarda)" />
+        <circle cx="156" cy="42" r="14" fill="var(--color-olive)" />
+        <line
+          x1="0"
+          y1="92"
+          x2="200"
+          y2="92"
+          stroke="var(--color-ink)"
+          strokeWidth="1.5"
+        />
+      </svg>
+    ),
+  },
 ];
 
 const chips = [
   "zoho one",
+  "deluge",
   "discord api",
   "stripe",
   "make",
   "n8n",
-  "zapier",
   "python",
   "typescript",
   "node",
   "docker",
-  "cloudflare workers",
-  "railway",
-  "supabase",
+  "cloud run",
+  "cloud sql",
+  "cloud build",
+  "cloud storage",
 ];
 
 export function ServicosSection() {
@@ -121,11 +164,14 @@ export function ServicosSection() {
       <header className="servicos-header">
         <div className="mono-label">o que fazemos</div>
         <h2 id="servicos-heading" className="servicos-h2">
-          Três frentes. Um único objetivo: sua empresa rodando melhor.
+          Quatro frentes. Um único objetivo: sua empresa rodando melhor.
         </h2>
         <p className="servicos-subtitle">
           escopo claro, preço transparente, entrega previsível.
         </p>
+        <a href="/precos" className="servicos-precos-link focus-ring">
+          ver todos os preços →
+        </a>
       </header>
 
       <div className="servicos-grid">
