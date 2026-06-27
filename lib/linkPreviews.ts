@@ -46,6 +46,13 @@ const EXACT: Record<string, LinkPreview> = {
     illustration: "home",
     accent: "mostarda",
   },
+  "/discord": {
+    number: "P·1",
+    title: "Sparamer Bot Builder",
+    subtitle: "Crie bots de Discord arrastando blocos. Editor visual sobre o Google Cloud.",
+    illustration: "discord",
+    accent: "mostarda",
+  },
   "/sobre": {
     number: "04",
     title: "Quem é a Sparamer",
@@ -177,7 +184,7 @@ function legalByAnchorText(text?: string): LinkPreview {
     return {
       number: "07·e",
       title: "Encarregado de dados",
-      subtitle: "Canal oficial com a ANPD: Luis Alfredo Chaparro Gomez — contato@sparamer.com.",
+      subtitle: "Canal oficial com a ANPD: Agnes Mary Chaparro Gomez — contato@sparamer.com.",
       illustration: "legal-dpo",
       accent: "ceramica",
     };

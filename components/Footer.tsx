@@ -111,13 +111,12 @@ export function Footer() {
 
       {/* Giant wordmark — same form as the navbar (lowercase sans + mostarda dot), at architectural scale */}
       <div className="relative z-10 overflow-hidden border-t border-cream/15 px-6 pb-6 pt-6 lg:px-10 lg:pb-8 lg:pt-8">
-        <div
-          aria-label="Sparamer"
-          className="select-none whitespace-nowrap font-sans font-medium leading-[0.82] text-cream"
-          style={{ fontSize: "clamp(3.5rem, 18vw, 22rem)", letterSpacing: "-0.045em" }}
-        >
-          sparamer<span className="text-mostarda">.</span>
-        </div>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logo-cream.svg"
+          alt="Sparamer"
+          className="block w-full select-none"
+        />
 
         {/* Bottom register: tagline + coordinates */}
         <div className="mt-4 flex flex-col gap-3 border-t border-cream/15 pt-4 font-mono text-[11px] uppercase tracking-[0.18em] text-cream/55 sm:flex-row sm:items-center sm:justify-between">
@@ -134,22 +133,17 @@ function FooterWordmark() {
   return (
     <Link
       href="/"
-      className="group inline-flex items-center gap-2.5"
+      className="group inline-flex items-center"
       aria-label="Sparamer — início"
     >
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden>
-        <circle cx="12" cy="12" r="11" stroke="var(--color-cream)" strokeWidth="1" opacity="0.4" />
-        <path
-          d="M 12 1 A 11 11 0 0 1 12 23"
-          stroke="var(--color-cream)"
-          strokeWidth="1.25"
-          fill="none"
-        />
-        <circle cx="12" cy="12" r="2.5" fill="var(--color-cream)" />
-      </svg>
-      <span className="font-sans text-[15px] font-medium tracking-[-0.01em] lowercase text-cream">
-        sparamer<span className="text-mostarda">.</span>
-      </span>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/logo-cream.svg"
+        alt="Sparamer"
+        width={170}
+        height={30}
+        style={{ height: 30, width: "auto" }}
+      />
     </Link>
   );
 }

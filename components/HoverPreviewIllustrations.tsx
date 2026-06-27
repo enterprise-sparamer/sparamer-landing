@@ -380,8 +380,8 @@ function Sobre({ a }: { a: string }) {
       <Horizon y={80} opacity={0.2} />
       {/* Member 1 — Luis (olive) */}
       <circle cx="50" cy="46" r="14" fill={OLV} />
-      <Mono x={50} y={76} anchor="middle">LUIS A.</Mono>
-      <Mono x={50} y={86} anchor="middle" size={5.5} opacity={0.4}>FUNDADOR</Mono>
+      <Mono x={50} y={76} anchor="middle">AGNES C.</Mono>
+      <Mono x={50} y={86} anchor="middle" size={5.5} opacity={0.4}>FUNDADORA</Mono>
       {/* Member 2 — David (ink ring) */}
       <circle cx="150" cy="46" r="14" fill="none" stroke={INK} strokeWidth="1.5" />
       <circle cx="150" cy="46" r="5" fill={INK} />
@@ -570,7 +570,7 @@ function LegalDPO({ a }: { a: string }) {
       <rect x="26" y="18" width="148" height="76" fill="var(--color-cream)" stroke={INK} strokeOpacity="0.55" strokeWidth="1.1" />
       <line x1="40" y1="40" x2="160" y2="40" stroke={a} strokeWidth="1.5" />
       <text x="40" y="34" fontFamily="var(--font-mono)" fontSize="6" fill={INK} fillOpacity="0.55" letterSpacing="0.18em">ENCARREGADO · DPO</text>
-      <text x="40" y="56" fontFamily="var(--font-sans)" fontSize="13" fontWeight="500" fill={INK}>Luis Chaparro</text>
+      <text x="40" y="56" fontFamily="var(--font-sans)" fontSize="13" fontWeight="500" fill={INK}>Agnes Chaparro</text>
       <text x="40" y="72" fontFamily="var(--font-mono)" fontSize="6.5" fill={INK} fillOpacity="0.7" letterSpacing="0.06em">contato@sparamer.com</text>
       <text x="40" y="84" fontFamily="var(--font-mono)" fontSize="6" fill={INK} fillOpacity="0.45" letterSpacing="0.12em">CANAL OFICIAL · ANPD</text>
       {/* seal */}

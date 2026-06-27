@@ -34,36 +34,6 @@ const services: ServicoCardProps[] = [
   },
   {
     number: "02",
-    title: "Discord & Comunidades",
-    subtitle: "bots, onboarding e engajamento",
-    painLine:
-      "A comunidade cresceu mais rápido que o seu time? Estruturamos bots e fluxos que entregam suporte 24/7 sem queimar gente.",
-    deliverables: [
-      "bots customizados em Node.js e Python",
-      "onboarding automatizado, cargos e níveis de XP",
-      "métricas de retenção e engajamento da comunidade",
-    ],
-    conversarHref: "/contato?topic=discord",
-    svg: (
-      <svg
-        viewBox="0 0 200 120"
-        role="img"
-        aria-label="Mini-composição constructivista representando Discord & Comunidades"
-        preserveAspectRatio="xMidYMid meet"
-      >
-        <rect
-          x="70"
-          y="20"
-          width="80"
-          height="80"
-          fill="var(--color-mostarda)"
-        />
-        <circle cx="160" cy="34" r="18" fill="var(--color-olive)" />
-      </svg>
-    ),
-  },
-  {
-    number: "03",
     title: "Integrações & Automações",
     subtitle: "solution architecture sob medida",
     painLine:
@@ -94,7 +64,7 @@ const services: ServicoCardProps[] = [
     ),
   },
   {
-    number: "04",
+    number: "03",
     title: "Cloud / GCP",
     subtitle: "arquitetura e infraestrutura Google Cloud",
     painLine:
@@ -164,7 +134,7 @@ export function ServicosSection() {
       <header className="servicos-header">
         <div className="mono-label">o que fazemos</div>
         <h2 id="servicos-heading" className="servicos-h2">
-          Quatro frentes. Um único objetivo: sua empresa rodando melhor.
+          Três frentes de consultoria. Um objetivo: sua empresa rodando melhor.
         </h2>
         <p className="servicos-subtitle">
           escopo claro, preço transparente, entrega previsível.

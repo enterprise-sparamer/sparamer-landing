@@ -157,7 +157,7 @@ export default function SobrePage() {
                     margin: "0 0 6px",
                   }}
                 >
-                  fundador · arquiteto de soluções
+                  fundadora · arquiteta de soluções
                 </p>
                 <h2
                   style={{
@@ -170,7 +170,7 @@ export default function SobrePage() {
                     margin: "0 0 12px",
                   }}
                 >
-                  Luis Alfredo Chaparro Gomez
+                  Agnes Mary Chaparro Gomez
                 </h2>
                 <p
                   style={{
@@ -182,7 +182,7 @@ export default function SobrePage() {
                     margin: "0 0 14px",
                   }}
                 >
-                  Venezuelano radicado no Rio, depois de uma temporada no norte
+                  Venezuelana radicada no Rio, depois de uma temporada no norte
                   da Suécia. Mais de cinco anos construindo automações em Python
                   e na nuvem — pipelines de RH e vendas, integrações de API e
                   arquiteturas sob medida no Google Cloud. Forte em todo o

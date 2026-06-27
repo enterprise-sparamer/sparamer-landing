@@ -2,7 +2,7 @@ import Link from "next/link";
 import { cn } from "@/lib/cn";
 import { LiquidStamp } from "@/components/ui/LiquidStamp";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "ghost" | "discord";
 type Size = "md" | "lg";
 
 type CommonProps = {
@@ -40,6 +40,10 @@ const variants: Record<Variant, string> = {
   primary:
     "bg-olive text-cream active:bg-olive-deep " +
     "disabled:bg-ink-15 disabled:text-ink-40 disabled:[&_.liquid-layer]:hidden " +
+    "shadow-[inset_0_-1px_0_rgba(0,0,0,0.18)]",
+  discord:
+    "bg-blurple text-white active:bg-blurple-deep hover:bg-blurple-deep " +
+    "disabled:bg-ink-15 disabled:text-ink-40 " +
     "shadow-[inset_0_-1px_0_rgba(0,0,0,0.18)]",
   secondary:
     "bg-cream text-ink border border-olive hover:border-olive-deep " +

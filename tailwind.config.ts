@@ -27,6 +27,10 @@ const config: Config = {
           stamp: "var(--color-mostarda-stamp)",
         },
         ceramica: "var(--color-ceramica)",
+        blurple: {
+          DEFAULT: "var(--color-blurple)",
+          deep: "var(--color-blurple-deep)",
+        },
       },
       fontFamily: {
         sans: ["var(--font-sans)", "system-ui", "sans-serif"],

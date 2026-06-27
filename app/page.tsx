@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Hero } from "@/components/sections/Hero";
+import { BotBuilderFeature } from "@/components/sections/BotBuilderFeature";
 import { Diagnostico } from "@/components/sections/Diagnostico";
 import { ServicosSection } from "@/components/sections/ServicosSection";
 import { CasosSection } from "@/components/sections/CasosSection";
@@ -33,6 +34,7 @@ export default function HomePage() {
       <Navbar />
       <main id="main" className="relative z-10">
         <Hero />
+        <BotBuilderFeature />
         <Diagnostico />
         <ServicosSection />
         <CasosSection />
