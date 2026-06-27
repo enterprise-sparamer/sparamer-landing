@@ -32,8 +32,8 @@ export function PreviewIllustration({ variant, accent }: Props) {
       {variant === "sobre" && <Sobre a={a} />}
       {variant === "diagnostico" && <Diagnostico a={a} />}
       {variant === "contato" && <Contato a={a} />}
-      {variant === "whatsapp" && <WhatsApp a={a} />}
       {variant === "email" && <Email a={a} />}
+      {variant === "precos" && <Precos a={a} />}
       {variant === "legal-identificacao" && <LegalIdentificacao a={a} />}
       {variant === "legal-privacidade" && <LegalPrivacidade a={a} />}
       {variant === "legal-direitos" && <LegalDireitos a={a} />}
@@ -246,12 +246,12 @@ function Stack({ a }: { a: string }) {
     { x: 14, y: 42, w: 30, label: "stripe", fill: OLV },
     { x: 48, y: 42, w: 38, label: "discord api" },
     { x: 90, y: 42, w: 28, label: "docker" },
-    { x: 122, y: 42, w: 30, label: "railway" },
-    { x: 156, y: 42, w: 28, label: "swr" },
+    { x: 122, y: 42, w: 32, label: "cloud run" },
+    { x: 158, y: 42, w: 28, label: "deluge" },
     { x: 14, y: 64, w: 42, label: "typescript" },
-    { x: 60, y: 64, w: 36, label: "supabase", fill: CER, hairline: true },
-    { x: 100, y: 64, w: 30, label: "cf-w" },
-    { x: 134, y: 64, w: 30, label: "zapier" },
+    { x: 60, y: 64, w: 34, label: "cloud sql", fill: CER, hairline: true },
+    { x: 98, y: 64, w: 26, label: "gcp" },
+    { x: 128, y: 64, w: 36, label: "cloud build" },
   ];
   return (
     <>
@@ -282,7 +282,7 @@ function Stack({ a }: { a: string }) {
           </text>
         </g>
       ))}
-      <Mono x={14} y={108} opacity={0.4}>13 FERRAMENTAS · CÓDIGO PRÓPRIO QUANDO FAZ SENTIDO</Mono>
+      <Mono x={14} y={108} opacity={0.4}>STACK SÊNIOR · CÓDIGO PRÓPRIO QUANDO FAZ SENTIDO</Mono>
     </>
   );
 }
@@ -381,7 +381,7 @@ function Sobre({ a }: { a: string }) {
       {/* Member 1 — Luis (olive) */}
       <circle cx="50" cy="46" r="14" fill={OLV} />
       <Mono x={50} y={76} anchor="middle">LUIS A.</Mono>
-      <Mono x={50} y={86} anchor="middle" size={5.5} opacity={0.4}>FUNDADORA</Mono>
+      <Mono x={50} y={86} anchor="middle" size={5.5} opacity={0.4}>FUNDADOR</Mono>
       {/* Member 2 — David (ink ring) */}
       <circle cx="150" cy="46" r="14" fill="none" stroke={INK} strokeWidth="1.5" />
       <circle cx="150" cy="46" r="5" fill={INK} />
@@ -393,7 +393,7 @@ function Sobre({ a }: { a: string }) {
       <Mono x={100} y={76} anchor="middle">SÃO PAULO</Mono>
       <Mono x={100} y={86} anchor="middle" size={5.5} opacity={0.4}>BRASIL · UTC−3</Mono>
 
-      <Mono x={100} y={112} anchor="middle" opacity={0.5}>PT · ES · EN</Mono>
+      <Mono x={100} y={112} anchor="middle" opacity={0.5}>PT·ES·EN·SV·FR</Mono>
     </>
   );
 }
@@ -429,18 +429,18 @@ function Diagnostico({ a }: { a: string }) {
   );
 }
 
-/* Contato — two channels (WhatsApp + email) split by hairline */
+/* Contato — two channels (consulta + email) split by hairline */
 function Contato({ a }: { a: string }) {
   return (
     <>
       <Horizon y={88} />
       {/* divider */}
       <line x1="100" y1="20" x2="100" y2="78" stroke={INK} strokeOpacity="0.25" strokeWidth="0.75" strokeDasharray="2 3" />
-      {/* WhatsApp side — speech bubble */}
+      {/* Consulta side — speech bubble */}
       <path d="M 20 30 L 78 30 Q 86 30 86 38 L 86 62 Q 86 70 78 70 L 36 70 L 26 78 L 28 70 Q 20 70 20 62 Z" fill={a} fillOpacity="0.2" stroke={INK} strokeOpacity="0.6" strokeWidth="1.1" />
       <line x1="30" y1="44" x2="74" y2="44" stroke={INK} strokeOpacity="0.6" strokeWidth="0.9" />
       <line x1="30" y1="54" x2="66" y2="54" stroke={INK} strokeOpacity="0.5" strokeWidth="0.9" />
-      <Mono x={52} y={104} anchor="middle">WHATSAPP</Mono>
+      <Mono x={52} y={104} anchor="middle">CONSULTA</Mono>
 
       {/* Email side — envelope */}
       <rect x="114" y="30" width="70" height="40" fill="none" stroke={INK} strokeOpacity="0.6" strokeWidth="1.1" />
@@ -453,27 +453,19 @@ function Contato({ a }: { a: string }) {
   );
 }
 
-/* WhatsApp — phone with bubble + olive accents (waveform) */
-function WhatsApp({ a }: { a: string }) {
+/* Preços — three ascending tier bars + R$ mark */
+function Precos({ a }: { a: string }) {
   return (
     <>
-      <Horizon />
-      {/* phone outline */}
-      <rect x="40" y="14" width="44" height="86" rx="6" fill="none" stroke={INK} strokeOpacity="0.6" strokeWidth="1.25" />
-      <circle cx="62" cy="92" r="1.5" fill={INK} fillOpacity="0.5" />
-      {/* incoming message bubbles */}
-      <rect x="46" y="22" width="28" height="10" rx="4" fill={INK} fillOpacity="0.12" />
-      <rect x="46" y="36" width="22" height="10" rx="4" fill={INK} fillOpacity="0.12" />
-      <rect x="50" y="50" width="28" height="10" rx="4" fill={a} fillOpacity="0.85" />
-      {/* outgoing waveform */}
-      <g>
-        {[100, 110, 120, 130, 140, 150, 160, 170].map((x, i) => {
-          const h = [10, 18, 26, 14, 22, 12, 18, 8][i];
-          return <rect key={x} x={x} y={56 - h / 2} width="3" height={h} fill={a} fillOpacity={0.85} />;
-        })}
-      </g>
-      <Mono x={130} y={86} opacity={0.55}>+55 21 99183-0821</Mono>
-      <Mono x={130} y={98} opacity={0.4}>HORÁRIO COMERCIAL</Mono>
+      <Horizon y={94} />
+      <rect x="28" y="58" width="30" height="36" fill="none" stroke={INK} strokeOpacity="0.5" strokeWidth="1" />
+      <rect x="72" y="42" width="30" height="52" fill={a} />
+      <rect x="116" y="26" width="30" height="68" fill="none" stroke={INK} strokeOpacity="0.6" strokeWidth="1.1" />
+      <Mono x={43} y={106} anchor="middle" size={5.5}>ENTRY</Mono>
+      <Mono x={87} y={106} anchor="middle" size={5.5}>STD</Mono>
+      <Mono x={131} y={106} anchor="middle" size={5.5}>PREMIUM</Mono>
+      <text x="170" y="42" fontFamily="var(--font-sans)" fontSize="16" fontWeight="500" fill={INK} fillOpacity="0.7" textAnchor="middle">R$</text>
+      <circle cx="170" cy="62" r="3" fill={a} />
     </>
   );
 }
@@ -492,8 +484,8 @@ function Email({ a }: { a: string }) {
       {/* send arrow */}
       <path d="M 150 50 L 180 50" stroke={INK} strokeOpacity="0.7" strokeWidth="1.5" strokeLinecap="round" />
       <path d="M 174 44 L 180 50 L 174 56" fill="none" stroke={INK} strokeOpacity="0.7" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-      <Mono x={100} y={102} anchor="middle">contact@chapi.dev</Mono>
-      <Mono x={100} y={112} anchor="middle" opacity={0.4}>PT · ES · EN</Mono>
+      <Mono x={100} y={102} anchor="middle">contato@sparamer.com</Mono>
+      <Mono x={100} y={112} anchor="middle" opacity={0.4}>PT·ES·EN·SV·FR</Mono>
     </>
   );
 }
@@ -578,8 +570,8 @@ function LegalDPO({ a }: { a: string }) {
       <rect x="26" y="18" width="148" height="76" fill="var(--color-cream)" stroke={INK} strokeOpacity="0.55" strokeWidth="1.1" />
       <line x1="40" y1="40" x2="160" y2="40" stroke={a} strokeWidth="1.5" />
       <text x="40" y="34" fontFamily="var(--font-mono)" fontSize="6" fill={INK} fillOpacity="0.55" letterSpacing="0.18em">ENCARREGADO · DPO</text>
-      <text x="40" y="56" fontFamily="var(--font-sans)" fontSize="13" fontWeight="500" fill={INK}>Agnes Gomez</text>
-      <text x="40" y="72" fontFamily="var(--font-mono)" fontSize="6.5" fill={INK} fillOpacity="0.7" letterSpacing="0.06em">contact@chapi.dev</text>
+      <text x="40" y="56" fontFamily="var(--font-sans)" fontSize="13" fontWeight="500" fill={INK}>Luis Chaparro</text>
+      <text x="40" y="72" fontFamily="var(--font-mono)" fontSize="6.5" fill={INK} fillOpacity="0.7" letterSpacing="0.06em">contato@sparamer.com</text>
       <text x="40" y="84" fontFamily="var(--font-mono)" fontSize="6" fill={INK} fillOpacity="0.45" letterSpacing="0.12em">CANAL OFICIAL · ANPD</text>
       {/* seal */}
       <circle cx="150" cy="68" r="12" fill="none" stroke={a} strokeWidth="1.25" />

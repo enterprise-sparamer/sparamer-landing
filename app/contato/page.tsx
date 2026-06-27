@@ -7,7 +7,7 @@ import { absoluteUrl, breadcrumbJsonLd } from "@/lib/seo";
 
 const TITLE = "Contato";
 const DESCRIPTION =
-  "Fale com a Sparamer por WhatsApp ou e-mail. Atendimento em português, espanhol e inglês, com resposta em até 24h úteis.";
+  "Fale com a Sparamer por e-mail ou comece pela consulta gratuita. Atendimento em português, espanhol, inglês, sueco e francês, com resposta em até 24h úteis.";
 
 export const metadata: Metadata = {
   title: TITLE,
@@ -20,9 +20,7 @@ export const metadata: Metadata = {
   },
 };
 
-const WHATSAPP_URL = "https://wa.me/5521991830821";
-const EMAIL = "contact@chapi.dev";
-const PHONE_DISPLAY = "+55 21 99183-0821";
+const EMAIL = "contato@sparamer.com";
 
 const company = [
   {
@@ -34,13 +32,8 @@ const company = [
     label: "Endereço",
     value: "Rua Pais Leme, 215, sala 1713 — Pinheiros, São Paulo / SP — 05424-150",
   },
+  { label: "Operação", value: "Remoto · Rio de Janeiro" },
   { label: "E-mail", value: EMAIL, href: `mailto:${EMAIL}` },
-  {
-    label: "WhatsApp",
-    value: PHONE_DISPLAY,
-    href: WHATSAPP_URL,
-    external: true,
-  },
 ];
 
 export default function ContatoPage() {
@@ -71,14 +64,14 @@ export default function ContatoPage() {
 
                 <p className="mt-8 max-w-md text-[15px] leading-[1.7] text-ink-55">
                   Sem formulário interminável, sem sequência automatizada de
-                  e-mails. WhatsApp ou e-mail direto com quem realmente vai
-                  resolver — você escolhe o canal.
+                  e-mails. E-mail direto com quem realmente vai resolver — ou
+                  comece pela consulta gratuita.
                 </p>
 
                 <dl className="mt-12 space-y-5 border-t border-ink-15 pt-10">
                   <ContactRow label="Atendimento">
                     <span className="text-ink-55">
-                      Português · Español · English
+                      Português · Español · English · Svenska · Français
                     </span>
                   </ContactRow>
                   <ContactRow label="Horário">
@@ -107,42 +100,42 @@ export default function ContatoPage() {
                       lineHeight: "1.1",
                     }}
                   >
-                    WhatsApp.{" "}
+                    E-mail.{" "}
                     <span className="text-ink-55">
                       Direto com quem executa.
                     </span>
                   </h2>
 
                   <p className="mt-6 text-[15px] leading-[1.7] text-ink-55">
-                    Mande uma mensagem com uma frase sobre o que precisa
-                    resolver. A gente responde em horário comercial e já te
-                    direciona o próximo passo.
+                    Escreva uma frase sobre o que precisa resolver. A gente
+                    responde em horário comercial e já te direciona o próximo
+                    passo.
                   </p>
 
                   <div className="mt-10">
-                    <Button href={WHATSAPP_URL} external size="lg">
-                      Falar agora no WhatsApp{" "}
+                    <Button href={`mailto:${EMAIL}`} size="lg">
+                      Escrever um e-mail{" "}
                       <span aria-hidden>→</span>
                     </Button>
                   </div>
 
                   <a
-                    href="tel:+5521991830281"
+                    href={`mailto:${EMAIL}`}
                     className="mt-6 inline-block font-mono text-[11px] text-ink-55 transition-colors hover:text-ink"
                   >
-                    {PHONE_DISPLAY}
+                    {EMAIL}
                   </a>
 
                   <div className="hairline my-12" />
 
                   <p className="font-mono text-[10px] uppercase tracking-[0.18em] text-ink-40">
-                    Prefere e-mail?
+                    Prefere começar pelo diagnóstico?
                   </p>
                   <a
-                    href={`mailto:${EMAIL}`}
+                    href="/consulta"
                     className="mt-3 inline-block font-display text-[20px] text-ink underline decoration-ink-15 underline-offset-[6px] transition-colors hover:text-ceramica hover:decoration-ceramica"
                   >
-                    {EMAIL}
+                    Consulta gratuita →
                   </a>
                 </div>
               </div>
@@ -178,19 +171,12 @@ export default function ContatoPage() {
                 <dl className="space-y-5 border-t border-ink-15 pt-10">
                   {company.map((row) => (
                     <ContactRow key={row.label} label={row.label}>
-                      {row.href ? (
+                      {"href" in row && row.href ? (
                         <a
                           href={row.href}
-                          {...(row.external
-                            ? {
-                                target: "_blank",
-                                rel: "noopener noreferrer",
-                              }
-                            : {})}
                           className="text-ink transition-colors hover:text-ceramica"
                         >
                           {row.value}
-                          {row.external && " ↗"}
                         </a>
                       ) : (
                         <span className="text-ink">{row.value}</span>

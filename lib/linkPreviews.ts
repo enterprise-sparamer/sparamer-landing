@@ -17,8 +17,8 @@ export type IllustrationKey =
   | "sobre"
   | "diagnostico"
   | "contato"
-  | "whatsapp"
   | "email"
+  | "precos"
   // Legal (4 artigos + termos)
   | "legal-identificacao"
   | "legal-privacidade"
@@ -60,10 +60,17 @@ const EXACT: Record<string, LinkPreview> = {
     illustration: "diagnostico",
     accent: "mostarda",
   },
+  "/precos": {
+    number: "01·$",
+    title: "Preços",
+    subtitle: "Faixas reais em BRL por frente. Escopo fechado no diagnóstico.",
+    illustration: "precos",
+    accent: "olive",
+  },
   "/contato": {
     number: "06",
     title: "Falar com a Sparamer",
-    subtitle: "WhatsApp ou e-mail direto com quem executa. Resposta em até 24h úteis.",
+    subtitle: "E-mail direto com quem executa, ou comece pela consulta gratuita. Resposta em até 24h úteis.",
     illustration: "contato",
     accent: "olive",
   },
@@ -108,7 +115,7 @@ const ANCHOR: Record<string, LinkPreview> = {
   servicos: {
     number: "01",
     title: "Serviços",
-    subtitle: "Três frentes: Zoho, Discord & comunidades, integrações sob medida.",
+    subtitle: "Quatro frentes: Zoho, integrações, Cloud/GCP e Discord & comunidades.",
     illustration: "servicos",
     accent: "mostarda",
   },
@@ -122,7 +129,7 @@ const ANCHOR: Record<string, LinkPreview> = {
   stack: {
     number: "01·s",
     title: "Stack técnica",
-    subtitle: "Zoho One, Python, TypeScript, Node, Make, n8n, Stripe, Discord API, Supabase.",
+    subtitle: "Zoho One, Deluge, Python, TypeScript, Node, Make, n8n, Stripe, Google Cloud.",
     illustration: "stack",
     accent: "olive",
   },
@@ -170,7 +177,7 @@ function legalByAnchorText(text?: string): LinkPreview {
     return {
       number: "07·e",
       title: "Encarregado de dados",
-      subtitle: "Canal oficial com a ANPD: Agnes Gomez — contact@chapi.dev.",
+      subtitle: "Canal oficial com a ANPD: Luis Alfredo Chaparro Gomez — contato@sparamer.com.",
       illustration: "legal-dpo",
       accent: "ceramica",
     };
@@ -198,21 +205,9 @@ export function resolvePreview(rawHref: string, anchorText?: string): LinkPrevie
     return {
       number: "06·@",
       title: address,
-      subtitle: "E-mail direto. Resposta em até 24h úteis, em português, espanhol ou inglês.",
+      subtitle: "E-mail direto. Resposta em até 24h úteis, em PT, ES, EN, SV ou FR.",
       illustration: "email",
       accent: "mostarda",
-    };
-  }
-
-  // tel
-  if (rawHref.startsWith("tel:")) {
-    const number = rawHref.replace(/^tel:/, "");
-    return {
-      number: "06·☎",
-      title: number,
-      subtitle: "Ligue durante horário comercial (UTC−3).",
-      illustration: "contato",
-      accent: "olive",
     };
   }
 
@@ -228,15 +223,6 @@ export function resolvePreview(rawHref: string, anchorText?: string): LinkPrevie
   // External links
   if (!isInternal) {
     const host = url.host.replace(/^www\./, "");
-    if (host.includes("wa.me") || host.includes("whatsapp.com")) {
-      return {
-        number: "06·w",
-        title: "WhatsApp",
-        subtitle: "Mensagem direta com quem executa. +55 21 99183-0821.",
-        illustration: "whatsapp",
-        accent: "olive",
-      };
-    }
     return {
       number: "↗",
       title: anchorText?.trim() || host,

@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 };
 
 const LAST_UPDATED = "10 de maio de 2026";
-const EMAIL = "contact@chapi.dev";
+const EMAIL = "contato@sparamer.com";
 
 const identification = [
   {
@@ -135,14 +135,13 @@ export default function LegalPage() {
               </p>
               <ul>
                 <li>
-                  <strong>Dados de identificação:</strong> nome, e-mail,
-                  telefone e empresa, fornecidos por você quando entra em
-                  contato.
+                  <strong>Dados de identificação:</strong> nome, e-mail e
+                  empresa, fornecidos por você quando entra em contato.
                 </li>
                 <li>
                   <strong>Conteúdo da comunicação:</strong> mensagens trocadas
-                  por e-mail e WhatsApp, incluindo descrições de problemas e
-                  contexto técnico.
+                  por e-mail, incluindo descrições de problemas e contexto
+                  técnico.
                 </li>
                 <li>
                   <strong>Dados de execução do serviço:</strong> credenciais e
@@ -246,14 +245,14 @@ export default function LegalPage() {
                 A pessoa responsável pelo tratamento de dados pessoais e canal
                 oficial de comunicação com os titulares e com a Autoridade
                 Nacional de Proteção de Dados (ANPD) é{" "}
-                <span className="text-ink">Agnes Gomez</span>, fundadora da
-                Sparamer.
+                <span className="text-ink">Luis Alfredo Chaparro Gomez</span>,
+                fundador da Sparamer.
               </p>
               <dl className="mt-8 space-y-5 border-t border-ink-15 pt-8">
                 <div className="grid grid-cols-3 gap-6 border-b border-ink-15 pb-4 last:border-0">
                   <dt className="eyebrow">Nome</dt>
                   <dd className="col-span-2 text-[14px] text-ink">
-                    Agnes Gomez
+                    Luis Alfredo Chaparro Gomez
                   </dd>
                 </div>
                 <div className="grid grid-cols-3 gap-6 border-b border-ink-15 pb-4 last:border-0">

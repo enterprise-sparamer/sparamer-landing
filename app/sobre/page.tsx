@@ -144,12 +144,7 @@ export default function SobrePage() {
             <p style={{ ...monoLabel, marginBottom: "22px" }}>time</p>
 
             <div className="sobre-team-grid">
-              {/* Member 1 — founder.
-                  Role label currently set to option (a) feminine
-                  ("fundadora · arquiteta de soluções"). Swap to
-                  (b) "fundador · arquiteto de soluções" or
-                  (c) "founder · solution architect" if the founder picks
-                  a different variant. */}
+              {/* Member 1 — founder */}
               <article>
                 <p
                   style={{
@@ -187,17 +182,20 @@ export default function SobrePage() {
                     margin: "0 0 14px",
                   }}
                 >
-                  Mais de cinco anos no ecossistema Zoho e Python. Estruturou
-                  operações em tecnologia para empresas internacionais antes
-                  de fundar a Sparamer.
+                  Venezuelano radicado no Rio, depois de uma temporada no norte
+                  da Suécia. Mais de cinco anos construindo automações em Python
+                  e na nuvem — pipelines de RH e vendas, integrações de API e
+                  arquiteturas sob medida no Google Cloud. Forte em todo o
+                  ecossistema Zoho (CRM, Recruit, Projects, People, Analytics,
+                  Sigma) e em GCP (Cloud Run, Cloud SQL, Cloud Build, Storage),
+                  com a certificação Google Professional Cloud Developer a
+                  caminho. Trabalha em português, espanhol, inglês, sueco e
+                  francês.
                 </p>
 
               </article>
 
-              {/* Member 2 — David Gamboa.
-                  TODO before deploy: fill the technical specialty in the
-                  bio. Do NOT invent technical specifics — wait for David
-                  to provide them. */}
+              {/* Member 2 — David Gamboa */}
               <article>
                 <p
                   style={{
@@ -210,7 +208,7 @@ export default function SobrePage() {
                     margin: "0 0 6px",
                   }}
                 >
-                  engenheiro de software
+                  engenheiro de computação · sistemas e dados
                 </p>
                 <h2
                   style={{
@@ -235,7 +233,9 @@ export default function SobrePage() {
                     margin: "0 0 14px",
                   }}
                 >
-                  Engenheiro em ciência da computação.
+                  Engenheiro da computação. Experiência em bancos de dados, ERP
+                  e construção de sistemas sob medida — a base que sustenta as
+                  integrações e os dados de cada projeto.
                 </p>
 
               </article>
@@ -315,7 +315,7 @@ export default function SobrePage() {
               <dd style={ddStyle}>65.977.336/0001-54</dd>
 
               <dt style={dtStyle}>endereço</dt>
-              <dd style={ddStyle}>São Paulo, BR</dd>
+              <dd style={ddStyle}>São Paulo, BR · remoto do Rio</dd>
 
               <dt style={dtStyle}>contato</dt>
               <dd style={ddStyle}>contato@sparamer.com</dd>

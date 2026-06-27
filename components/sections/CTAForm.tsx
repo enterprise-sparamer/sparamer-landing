@@ -5,7 +5,7 @@ import { motion, useReducedMotion, type Variants } from "framer-motion";
 import { Eyebrow } from "../ui/Eyebrow";
 import { cn } from "@/lib/cn";
 
-const INBOX = "contact@chapi.dev";
+const INBOX = "contato@sparamer.com";
 
 const ease = [0.22, 1, 0.36, 1] as const;
 

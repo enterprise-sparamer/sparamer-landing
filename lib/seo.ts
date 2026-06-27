@@ -25,9 +25,7 @@ export const COMPANY = {
   name: SITE_NAME,
   legalName: "Luis Alfr Chap Gomez Cons Tecn Informacao Ltda",
   taxId: "65.977.336/0001-54",
-  email: "contact@chapi.dev",
-  phone: "+55 21 99183-0821",
-  whatsappUrl: "https://wa.me/5521991830821",
+  email: "contato@sparamer.com",
   address: {
     streetAddress: "Rua Pais Leme, 215, sala 1713",
     neighborhood: "Pinheiros",
@@ -68,7 +66,6 @@ export function organizationJsonLd(): JsonLd {
     url: SITE_URL,
     logo: absoluteUrl("/favicon.svg"),
     email: COMPANY.email,
-    telephone: COMPANY.phone,
     taxID: COMPANY.taxId,
     address: {
       "@type": "PostalAddress",
@@ -83,8 +80,7 @@ export function organizationJsonLd(): JsonLd {
         "@type": "ContactPoint",
         contactType: "customer support",
         email: COMPANY.email,
-        telephone: COMPANY.phone,
-        availableLanguage: ["pt-BR", "es", "en"],
+        availableLanguage: ["pt-BR", "es", "en", "sv", "fr"],
         areaServed: "BR",
       },
     ],
