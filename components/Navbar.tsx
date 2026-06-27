@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/Button";
 type SectionId = "servicos" | "metodo" | "sobre";
 
 const NAV_LINKS: { id: SectionId | null; href: string; label: string }[] = [
+  { id: null,       href: "/discord",   label: "bot builder" },
   { id: "servicos", href: "/#servicos", label: "serviços" },
   { id: null,       href: "/precos",    label: "preços" },
   { id: "metodo",   href: "/#metodo",   label: "método" },
@@ -131,10 +132,14 @@ export function Navbar() {
 
       <div className="nav-inner">
         <Link href="/" className="wordmark" aria-label="Sparamer — início">
-          <span className="brand-dot" aria-hidden="true" />
-          <span className="wordmark-text">
-            sparamer<span className="wordmark-dot">.</span>
-          </span>
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/logo-color.svg"
+            alt="Sparamer"
+            width={150}
+            height={26}
+            style={{ height: 26, width: "auto" }}
+          />
         </Link>
 
         <nav className="nav-links" aria-label="Navegação principal">

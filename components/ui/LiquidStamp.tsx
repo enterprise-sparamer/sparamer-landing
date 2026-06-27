@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from "framer-motion";
 
-type Variant = "primary" | "secondary" | "ghost";
+type Variant = "primary" | "secondary" | "ghost" | "discord";
 
 /**
  * Two mustard bubbles playing inside a button. They swing on opposing
@@ -17,7 +17,8 @@ type Variant = "primary" | "secondary" | "ghost";
  */
 export function LiquidStamp({ variant }: { variant: Variant }) {
   const reduce = useReducedMotion();
-  if (variant === "ghost") return null;
+  // Discord buttons stay a clean solid blurple — no mustard bubbles.
+  if (variant === "ghost" || variant === "discord") return null;
 
   // aspect-square + height-as-%-of-container forces a true circle whose
   // diameter scales with button height (works for both md and lg sizes).

@@ -245,14 +245,14 @@ export default function LegalPage() {
                 A pessoa responsável pelo tratamento de dados pessoais e canal
                 oficial de comunicação com os titulares e com a Autoridade
                 Nacional de Proteção de Dados (ANPD) é{" "}
-                <span className="text-ink">Luis Alfredo Chaparro Gomez</span>,
-                fundador da Sparamer.
+                <span className="text-ink">Agnes Mary Chaparro Gomez</span>,
+                fundadora da Sparamer.
               </p>
               <dl className="mt-8 space-y-5 border-t border-ink-15 pt-8">
                 <div className="grid grid-cols-3 gap-6 border-b border-ink-15 pb-4 last:border-0">
                   <dt className="eyebrow">Nome</dt>
                   <dd className="col-span-2 text-[14px] text-ink">
-                    Luis Alfredo Chaparro Gomez
+                    Agnes Mary Chaparro Gomez
                   </dd>
                 </div>
                 <div className="grid grid-cols-3 gap-6 border-b border-ink-15 pb-4 last:border-0">
